@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/fx_deal_warehouse_v1
+      SERVER_PORT: 8081
+    depends_on:
+      - mongo
+    volumes:
+      - maven_repo:/root/.m2
+
+  mongo:
+    image: mongo:latest
+    container_name: fx_deal_mongo_db
+    command: [ "mongod", "--noauth" ]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+  maven_repo:
