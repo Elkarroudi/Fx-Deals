@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/fx_deal_warehouse_v1
+
+  application:
+    name: "FX Deal Warehouse"
+    version: v1
+
+server:
+  port: 8081
+

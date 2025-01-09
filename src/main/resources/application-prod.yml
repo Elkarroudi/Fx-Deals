@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: ${DB_URL}
+      database: ${DB_NAME}
+
+  application:
+    name: "FX Deal Warehouse"
+    version: v1
+
+server:
+  port: 8081
